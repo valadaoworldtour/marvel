@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3em;
+    color: #ed1d24;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+#timeline {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+#searchInput {
+    display: block;
+    width: 50%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #333;
+    background-color: #2a2a2a;
+    color: #fff;
+    font-size: 1em;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: #ed1d24;
+}
+
+
+.phase-header {
+    background-color: #ed1d24;
+    color: #ffffff;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.8em;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: background-color 0.3s ease;
+}
+
+.phase-header:hover {
+    background-color: #c41a1e;
+}
+
+.items-container {
+    display: none;
+    padding: 0 15px;
+    border-left: 3px solid #ed1d24;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.phase-container.expanded .items-container {
+    display: block;
+}
+
+.timeline-item {
+    background-color: #2a2a2a;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.timeline-item:hover {
+    transform: scale(1.02);
+}
+
+.item-title {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.item-year {
+    font-size: 1em;
+    color: #cccccc;
+}
+
+.item-type {
+    font-size: 0.9em;
+    padding: 5px 10px;
+    border-radius: 3px;
+    color: #ffffff;
+    text-transform: capitalize;
+}
+
+.item-type.filme { background-color: #007bff; }
+.item-type.série { background-color: #28a745; }
+.item-type.animação { background-color: #ffc107; }
+.item-type.especial { background-color: #17a2b8; }
