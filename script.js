@@ -37,6 +37,7 @@ const timelineData = [
     { phase: 'Fase Dois', title: 'X-Men: Dias de um Futuro Esquecido', year: '2014', type: 'Filme' },
     { phase: 'Fase Dois', title: 'Capitão América: O Soldado Invernal', year: '2014', type: 'Filme' },
     { phase: 'Fase Dois', title: 'Agentes da S.H.I.E.L.D. (Temporada 1, Eps 17-22)', year: '2014', type: 'Série' },
+    { phase: 'Fase Dois', title: 'Guardiões da Galáxia (Curtas)', year: 'Pré-2014 (Origens)', type: 'Animação' },
     { phase: 'Fase Dois', title: 'Guardiões da Galáxia', year: '2014', type: 'Filme' },
     { phase: 'Fase Dois', title: 'Guardiões da Galáxia Vol. 2', year: '2014', type: 'Filme' },
     { phase: 'Fase Dois', title: 'Eu Sou Groot', year: '2014', type: 'Animação' },
@@ -108,7 +109,7 @@ const timelineData = [
     { phase: 'Fase Quatro', title: 'Ms. Marvel', year: '2025', type: 'Série' },
     { phase: 'Fase Quatro', title: 'Thor: Amor e Trovão', year: '2025', type: 'Filme' },
     { phase: 'Fase Quatro', title: 'Pantera Negra: Wakanda para Sempre', year: '2025', type: 'Filme' },
-    { phase: 'Fase Quatro', title: 'Guardiões da Galáxia: Especial de Festas', year: '2025', type: 'Especial' },
+    { phase: 'Fase Quatro', title: 'Guardiões da Galáxia: Especial de Festas', year: '2022', type: 'Especial' },
     { phase: 'Fase Quatro', title: 'Homem-Formiga e a Vespa: Quantumania', year: '2025', type: 'Filme' },
 
     // Fase Cinco
@@ -128,6 +129,10 @@ const timelineData = [
     { phase: 'Fase Cinco', title: 'Thunderbolts', year: '2025', type: 'Filme' },
     { phase: 'Fase Cinco', title: 'Coração de Ferro', year: 'TBA', type: 'Série' },
     { phase: 'Fase Cinco', title: 'Blade', year: '2025', type: 'Filme' },
+    { phase: 'Fase Cinco', title: 'Homem-Aranha: Um Novo Dia', year: '2026', type: 'Filme' },
+
+    // Animações Adicionais e Multiverso
+    { phase: 'Animações Adicionais e Multiverso', title: 'Guardiões da Galáxia (Desenho - 3 Temporadas)', year: '2015-2019', type: 'Animação' }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -159,10 +164,13 @@ document.addEventListener('DOMContentLoaded', () => {
             phaseItems.forEach(item => {
                 const itemElement = document.createElement('div');
                 itemElement.classList.add('timeline-item');
+                
                 itemElement.innerHTML = `
+                    <div class="item-info">
+                        <div class="item-title">${item.title}</div>
+                        <div class="item-year">${item.year}</div>
+                    </div>
                     <div class="item-type ${item.type.toLowerCase()}">${item.type}</div>
-                    <div class="item-title">${item.title}</div>
-                    <div class="item-year">${item.year}</div>
                 `;
                 itemsContainer.appendChild(itemElement);
             });

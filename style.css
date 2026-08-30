@@ -1,111 +1,187 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+
+:root {
+    --marvel-red: #ed1d24;
+    --marvel-dark: #8b0000;
+    --bg-dark: #0f0f13;
+    --card-bg: rgba(30, 30, 36, 0.7);
+    --text-light: #ffffff;
+    --text-muted: #b0b0b0;
+}
 
 body {
-    background-color: #1a1a1a;
-    color: #ffffff;
+    background-color: var(--bg-dark);
+    background-image: radial-gradient(circle at top center, #2a1617 0%, #0f0f13 60%);
+    color: var(--text-light);
     font-family: 'Montserrat', sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    min-height: 100vh;
 }
 
-h1 {
-    text-align: center;
-    font-size: 3em;
-    color: #ed1d24;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
-#timeline {
+.content {
     max-width: 900px;
     margin: 0 auto;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Título Estilo Marvel */
+h1 {
+    text-align: center;
+    font-size: 3.5em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    font-weight: 800;
+}
+
+.marvel-logo {
+    background-color: var(--marvel-red);
+    color: var(--text-light);
+    padding: 0px 12px;
+    border-radius: 4px;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(237, 29, 36, 0.4);
+}
+
+/* Barra de Pesquisa Chamativa */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
 }
 
 #searchInput {
-    display: block;
-    width: 50%;
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 10px;
-    border-radius: 5px;
+    width: 100%;
+    max-width: 500px;
+    padding: 15px 25px;
+    border-radius: 30px;
     border: 2px solid #333;
-    background-color: #2a2a2a;
+    background-color: rgba(20, 20, 25, 0.8);
     color: #fff;
-    font-size: 1em;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
 }
 
 #searchInput:focus {
     outline: none;
-    border-color: #ed1d24;
+    border-color: var(--marvel-red);
+    box-shadow: 0 0 25px rgba(237, 29, 36, 0.5);
+    background-color: rgba(30, 30, 35, 0.9);
 }
 
+#searchInput::placeholder {
+    color: #777;
+}
 
+/* Cabeçalhos das Fases */
 .phase-header {
-    background-color: #ed1d24;
-    color: #ffffff;
-    padding: 15px;
+    background: linear-gradient(135deg, var(--marvel-red) 0%, var(--marvel-dark) 100%);
+    color: var(--text-light);
+    padding: 18px 20px;
     cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
+    border-radius: 8px;
     font-size: 1.8em;
-    margin-top: 20px;
+    margin-top: 30px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    transition: background-color 0.3s ease;
+    font-weight: 800;
+    box-shadow: 0 4px 15px rgba(237, 29, 36, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .phase-header:hover {
-    background-color: #c41a1e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(237, 29, 36, 0.4);
 }
 
+/* Container de Itens com animação */
 .items-container {
     display: none;
-    padding: 0 15px;
-    border-left: 3px solid #ed1d24;
+    padding: 10px 0 10px 20px;
+    border-left: 4px solid var(--marvel-red);
     margin-left: 20px;
-    margin-top: 10px;
+    margin-top: 15px;
+    animation: fadeIn 0.4s ease-in-out;
 }
 
 .phase-container.expanded .items-container {
     display: block;
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Cartões da Linha do Tempo */
 .timeline-item {
-    background-color: #2a2a2a;
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 5px;
+    background-color: var(--card-bg);
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: transform 0.2s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .timeline-item:hover {
-    transform: scale(1.02);
+    transform: scale(1.02) translateX(10px);
+    background-color: rgba(40, 40, 48, 0.9);
+    box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .item-title {
-    font-size: 1.2em;
+    font-size: 1.3em;
     font-weight: 600;
+    color: var(--text-light);
 }
 
 .item-year {
-    font-size: 1em;
-    color: #cccccc;
+    font-size: 0.95em;
+    color: var(--text-muted);
+    font-weight: 600;
 }
 
+/* Badges de Tipo */
 .item-type {
-    font-size: 0.9em;
-    padding: 5px 10px;
-    border-radius: 3px;
+    font-size: 0.85em;
+    font-weight: 800;
+    padding: 6px 14px;
+    border-radius: 20px;
     color: #ffffff;
-    text-transform: capitalize;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.item-type.filme { background-color: #007bff; }
-.item-type.série { background-color: #28a745; }
-.item-type.animação { background-color: #ffc107; }
-.item-type.especial { background-color: #17a2b8; }
+.item-type.filme { background: linear-gradient(135deg, #0052d4, #4364f7); }
+.item-type.série { background: linear-gradient(135deg, #11998e, #38ef7d); }
+.item-type.animação { background: linear-gradient(135deg, #f7971e, #ffd200); color: #1a1a1a;}
+.item-type.especial { background: linear-gradient(135deg, #8A2387, #E94057); }
+
+/* Responsividade mobile */
+@media (max-width: 600px) {
+    .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    h1 { font-size: 2.5em; }
+}
